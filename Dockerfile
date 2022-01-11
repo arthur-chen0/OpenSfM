@@ -27,5 +27,12 @@ COPY . /source/OpenSfM
 
 WORKDIR /source/OpenSfM
 
-RUN pip3 install -r requirements.txt && \
-    python3 setup.py build
+RUN pip3 install -r requirements.txt \
+  && python3 setup.py build \
+  && ./viewer/node_modules.sh \
+  && bin/opensfm_run_all data/berlin
+#   && bin/opensfm_run_all data/lund
+#   && bin/opensfm_run_all data/test
+
+CMD ["python3", "viewer/server.py", "-d", "data"]
+
