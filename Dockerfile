@@ -34,5 +34,5 @@ RUN pip3 install -r requirements.txt \
 #   && bin/opensfm_run_all data/lund
 #   && bin/opensfm_run_all data/test
 
-CMD ["python3", "viewer/server.py", "-d", "data"]
+CMD ["python3", "viewer/server.py", "-d", "data", "-p", "9000"]
 
